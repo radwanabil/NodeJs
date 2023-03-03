@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+
+</head>
+
+<body>
+
+    <div class="login-box">
+        <h2>Login</h2>
+        <form action="./welcome.html" method="post">
+            <div class="user-box">
+                <input type="text" name="name" pattern="[A-Za-z ]{1,}" required name="name">
+                <label>Username</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required
+                    email="email">
+                <label>email</label>
+            </div>
+            <div class="user-box">
+                <input type="tel" name="mobile" required="">
+                <label>mobile</label>
+            </div>
+            <div class="user-box">
+                <input type="text" name="address" required="">
+                <label>address</label>
+            </div>
+
+            <div class="button-form">
+                <input id="submit" href="./welcome.html" type="submit" />
+            </div>
+
+        </form>
+    </div>
+
+</body>
+
+
+</html>
