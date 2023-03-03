@@ -1,8 +1,8 @@
 // import fetch from 'node-fetch';
 const http = require("http");
 const fs = require("fs");
-// const { json } = require("stream/consumers");
-// const fetch = require('node-fetch');
+const { json } = require("node:stream/consumers");
+
 
 
 let MainFileHTML = fs.readFileSync("../clientSide/index.html").toString();
@@ -16,9 +16,11 @@ var email = "";
 var mobile = "";
 var address = "";
 var allData = "";
-let obj = {
-    users: [],
-}
+let obj = []
+
+var obj2 = fs.readFileSync("users.json", "utf-8");
+obj = JSON.parse(obj2);
+
 http.createServer((req, res) => {
     //#region GET
     if (req.method == "GET") {
@@ -89,17 +91,8 @@ http.createServer((req, res) => {
 
             };
 
-            fs.readFile("users.json", "utf-8", (err, data) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                    obj = JSON.parse(data);
-                    obj.users.push(dataTofile);
-
-                    fs.writeFile("users.json", JSON.stringify(obj), "utf-8", () => { })
-                }
-            })
-            // fs.appendFile("users.json", JSON.stringify(obj), "utf-8", () => { });
+            obj.push(dataTofile);
+            fs.writeFileSync("users.json", JSON.stringify(obj));
 
 
         })
