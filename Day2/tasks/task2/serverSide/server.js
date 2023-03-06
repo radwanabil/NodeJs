@@ -16,6 +16,7 @@ var email = "";
 var mobile = "";
 var address = "";
 var allData = "";
+
 let obj = []
 
 var obj2 = fs.readFileSync("users.json", "utf-8");

@@ -4,8 +4,6 @@ const welcomeHeading = document.getElementsByTagName("h1")
 
 
 
-console.log(welcomeHeading);
-
 async function fetchTheData() {
     let response = await fetch('../serverSide/users.json');
     let data = await response.text()
