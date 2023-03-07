@@ -1,7 +1,5 @@
-
 const fs = require("fs");
 var WelcomeHTML = fs.readFileSync("../clientSide/welcome.html").toString();
-const { json } = require("body-parser");
 const express = require("express");
 const app = express();
 const path = require("path")
@@ -9,7 +7,7 @@ let jsonFile = "./users.json";
 
 app.use(express.json())
 
-var userName = "";
+var name = "";
 var email = "";
 var mobile = "";
 var address = "";
@@ -42,18 +40,18 @@ app.get("/serverSide/users.json", (req, res) => {
 })
 app.post("/welcome.html", (req, res, next) => {
 
-    userName = req.body["name"]
+    name = req.body["name"]
 
     email = req.body["email"]
     mobile = req.body["mobile"]
     address = req.body["address"]
 
-    WelcomeHTML = WelcomeHTML.replace("{username}", userName);
+    WelcomeHTML = WelcomeHTML.replace("{username}", name);
     WelcomeHTML = WelcomeHTML.replace("{email}", email)
     WelcomeHTML = WelcomeHTML.replace("{mobile}", mobile)
     WelcomeHTML = WelcomeHTML.replace("{address}", address)
     let user = {
-        userName,
+        name,
         email,
         mobile,
         address
