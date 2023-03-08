@@ -1,2 +1,2 @@
 # NodeJs Labs
-* [Chat Application] (https://chat-application1.onrender.com)
+* [Chat Application](https://chat-application1.onrender.com)
